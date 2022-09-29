@@ -1,0 +1,166 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:slight="clr-namespace:Slight.Core">
+
+    <Storyboard x:Key="RightToLeftTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+            From="50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="LeftToRightTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+            From="-50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="BottomToTopTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+            From="50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="TopToBottomTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+            From="-50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="RightToLeftWithFadeTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.Opacity)"
+            From="0"
+            To="1"
+            Duration="0:0:0.4" />
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+            From="50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="LeftToRightWithFadeTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.Opacity)"
+            From="0"
+            To="1"
+            Duration="0:0:0.4" />
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+            From="-50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="BottomToTopWithFadeTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.Opacity)"
+            From="0"
+            To="1"
+            Duration="0:0:0.4" />
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+            From="50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+    <Storyboard x:Key="TopToBottomWithFadeTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.Opacity)"
+            From="0"
+            To="1"
+            Duration="0:0:0.4" />
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+            From="-50"
+            To="0"
+            Duration="0:0:0.4">
+            <DoubleAnimation.EasingFunction>
+                <CubicEase EasingMode="EaseOut" />
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+    </Storyboard>
+
+    <Storyboard x:Key="FadeTransition" x:Shared="False">
+        <DoubleAnimation
+            Storyboard.TargetProperty="(UIElement.Opacity)"
+            From="0"
+            To="1"
+            Duration="0:0:0.4" />
+    </Storyboard>
+
+    <Style TargetType="slight:TransitioningControl">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="slight:TransitioningControl">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentControl
+                            x:Name="PATH_Container"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            BorderBrush="{x:Null}"
+                            BorderThickness="0"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontStretch="{TemplateBinding FontStretch}"
+                            FontStyle="{TemplateBinding FontStyle}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            Foreground="{TemplateBinding Foreground}"
+                            RenderTransformOrigin="0.5,0.5">
+
+                            <ContentControl.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform />
+                                </TransformGroup>
+                            </ContentControl.RenderTransform>
+
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,9 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:slight="clr-namespace:Slight.Core">
+    <slight:String2VisibilityReConverter x:Key="String2VisibilityReConverter" />
+    <slight:EnumDescriptionConverter x:Key="EnumDescriptionConverter" />
+    <slight:ValueIncreaseConverter x:Key="ValueIncreaseConverter" />
+    <slight:ThicknessIncreaseConverter x:Key="ThicknessIncreaseConverter" />
+</ResourceDictionary>

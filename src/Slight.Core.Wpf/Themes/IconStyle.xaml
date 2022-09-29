@@ -1,0 +1,78 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:slight="clr-namespace:Slight.Core">
+    <Style TargetType="{x:Type slight:Icon}">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type slight:Icon}">
+                    <Border
+                        x:Name="PATH_Container"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <Grid Background="Transparent" RenderTransformOrigin=".5,.5">
+                            <Grid.RenderTransform>
+                                <RotateTransform x:Name="RotateTransform" Angle="0" />
+                            </Grid.RenderTransform>
+                            <!--
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Width="{TemplateBinding IconWidth}"
+                                Height="{TemplateBinding IconHeight}"
+                            -->
+                            <Path
+                                Margin="{TemplateBinding Padding}"
+                                Panel.ZIndex="100"
+                                Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Fill" />
+                            <Border
+                                x:Name="PATH_grid"
+                                Panel.ZIndex="1"
+                                Background="Transparent"
+                                ClipToBounds="True"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsHitTestVisible="False"
+                                Opacity="0"
+                                RenderTransformOrigin=".5,.5"
+                                SnapsToDevicePixels="True">
+                                <Path
+                                    Margin="{TemplateBinding Padding}"
+                                    Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Fill="{TemplateBinding FeedbackForeground}"
+                                    Stretch="Fill" />
+                                <Border.RenderTransform>
+                                    <ScaleTransform x:Name="ScaleTransform" ScaleX="1" ScaleY="1" />
+                                </Border.RenderTransform>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsClickable" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

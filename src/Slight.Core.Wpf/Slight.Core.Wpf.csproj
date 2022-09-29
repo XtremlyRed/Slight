@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup Label="Globals">
+		<SccProjectName>SAK</SccProjectName>
+		<SccProvider>SAK</SccProvider>
+		<SccAuxPath>SAK</SccAuxPath>
+		<SccLocalPath>SAK</SccLocalPath>
+		<Platforms>AnyCPU</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AssemblyOriginatorKeyFile>$(SolutionDir)\slight.snk</AssemblyOriginatorKeyFile>
+
+		<SignAssembly>true</SignAssembly>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<ApplicationIcon>slight.ico</ApplicationIcon>
+		<PackageIcon>slight.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="LICENSE" Pack="true" PackagePath="" />
+		<None Include="slight.png" Pack="true" PackagePath="" />
+		<None Include="slight.ico" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+
+
+	<ItemGroup>
+		<ProjectReference Include="..\Slight.Core\Slight.Core.csproj" />
+	</ItemGroup>
+
+
+
+	<PropertyGroup>
+		<TargetFrameworks>
+			net5.0-windows;
+			net6.0-windows;
+			net7.0-windows;
+			netcoreapp3.1;
+			net451;
+			net48;
+		</TargetFrameworks>
+
+		<UseWindowsForms>true</UseWindowsForms>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+
+
+	<PropertyGroup>
+
+		<Description>
+			1. AlterApplication startup with container
+			2. PopupHost  a popup message control
+			3. NavigateHost  a navigation control
+			4. EventRaiserManager  single event to Command
+			5. Command;If;Switch Extension  help with binding
+		</Description>
+	</PropertyGroup>
+
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows|AnyCPU'">
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0-windows|AnyCPU'">
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows|AnyCPU'">
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+
+	<Import Project="$(SolutionDir)\GlobalCompileSettings.Targets" />
+
+
+</Project>
